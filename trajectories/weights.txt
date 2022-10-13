@@ -1,0 +1,25 @@
+1.pth 
+    - input_dim = 1, hidden_dim = 95, output_dim = 4, num_layers = 2, linear_hd1 = 512
+    - 2 linear layers
+    - no relu
+    - lr: 1e-3, no lr_scheduler, AdamW
+    - batch_size: 32
+    
+2.pth
+    - input_dim = 1, hidden_dim = 95, output_dim = 4, num_layers = 2, linear_hd1 = 512
+    - "" ""
+    - batch_size: 64
+    
+3.pth
+    - input_dim = 1, hidden_dim = 95, output_dim = 4, num_layers = 3, linear_hd1 = 512, linear_hd2 = 256
+    - 3 linear layers
+    - no relu
+    - lr: 1e-3, no lr_scheduler, AdamW
+    - batch_size: 64
+    
+4.pth
+    - input_dim = 1, hidden_dim = 95, output_dim = 4, num_layers= 1
+    - 1 linear layer with flattened hidden state -> output_dim
+    - no relu
+    - lr: 1e-3, no lr_scheduler, AdamW
+    - batch_size: 64
