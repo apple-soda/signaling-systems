@@ -9,6 +9,7 @@ Collection of LSTM-based models to classify ligand identity from time-series tra
 '''
 class TSC_1(nn.Module):
     def __init__(self, input_dim, hidden_dim, output_dim, num_layers, linear_hidden_dim):
+        super().__init__()
         self.lstm = nn.LSTM(input_dim, hidden_dim, num_layers, batch_first=True)
         self.linear1 = nn.Linear(num_layers * hidden_dim, linear_hidden_dim)
         self.linear2 = nn.Linear(linear_hidden_dim, output_dim)
