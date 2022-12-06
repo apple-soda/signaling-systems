@@ -13,13 +13,13 @@ class TSC_1(nn.Module):
         self.lstm = nn.LSTM(input_dim, hidden_dim, num_layers, batch_first=True)
         self.linear1 = nn.Linear(num_layers * hidden_dim, linear_hidden_dim)
         self.linear2 = nn.Linear(linear_hidden_dim, output_dim)
-        
-        # find a way to adaptively intialize lstm weights depending on num_layers
+        self.relu = nn.ReLU(inplace=True)
+        self.sigmoid = nn.Sigmoid()
         
     def forward(self, x):
         _, (h, c) = self.lstm(x)
         h = h.permute(1, 0, 2) # [b, h, n]
         h = h.flatten(start_dim=1)
-        out = self.linear2(self.linear1(h))
+        out = self.sigmoid(self.linear2(self.relu(self.linear1(h))))
         return out
         
